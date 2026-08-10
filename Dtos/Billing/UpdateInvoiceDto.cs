@@ -6,7 +6,6 @@ namespace MedicalManagementSystem.Dtos.Billing
     public class UpdateInvoiceDto
     {
         [Required]
-        [MaxLength(20)]
         public InvoiceStatus Status { get; set; } 
     }
 }

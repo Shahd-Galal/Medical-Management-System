@@ -4,9 +4,11 @@ using MedicalManagementSystem.Data;
 using MedicalManagementSystem.Model.Auth;
 using MedicalManagementSystem.Repositories.Doctors;
 using MedicalManagementSystem.Repositories.Hospital;
+using MedicalManagementSystem.Repositories.Patients;
 using MedicalManagementSystem.Services.Auth;
 using MedicalManagementSystem.Services.Doctors;
 using MedicalManagementSystem.Services.Hospital;
+using MedicalManagementSystem.Services.Patients;
 using MedicalManagementSystem.UnitOfWork;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -17,7 +19,12 @@ using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(
+            new System.Text.Json.Serialization.JsonStringEnumConverter());
+    });
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
@@ -38,6 +45,15 @@ builder.Services.AddScoped<IDoctorService, DoctorService>();
 
 builder.Services.AddScoped<IDoctorScheduleRepository, DoctorScheduleRepository>();
 builder.Services.AddScoped<IDoctorScheduleService, DoctorScheduleService>();
+
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IPatientService, PatientService>();
+
+builder.Services.AddScoped<IMedicalHistoryRepository, MedicalHistoryRepository>();
+builder.Services.AddScoped<IMedicalHistoryService, MedicalHistoryService>();
+
+builder.Services.AddScoped<IAllergyRepository, AllergyRepository>();
+builder.Services.AddScoped<IAllergyService, AllergyService>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();

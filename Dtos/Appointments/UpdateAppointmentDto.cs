@@ -8,7 +8,6 @@ namespace MedicalManagementSystem.Dtos.Appointments
         [Required]
         public DateTime AppointmentDate { get; set; }
         [Required]
-        [MaxLength(20)]
         public AppointmentStatus Status { get; set; } 
         [MaxLength(500)]
         public string? Reason { get; set; }

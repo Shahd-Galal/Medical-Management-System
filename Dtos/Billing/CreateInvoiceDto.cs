@@ -10,7 +10,6 @@ namespace MedicalManagementSystem.Dtos.Billing
         [Required]
         public int AppointmentId { get; set; }
         [Required]
-        [MaxLength(20)]
         public InvoiceStatus Status { get; set; } 
     }
 }

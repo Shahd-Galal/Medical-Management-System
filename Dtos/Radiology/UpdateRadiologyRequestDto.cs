@@ -9,7 +9,6 @@ namespace MedicalManagementSystem.Dtos.Radiology
         [MaxLength(100)]
         public string ScanType { get; set; } = null!;
         [Required]
-        [MaxLength(20)]
         public RadiologyRequestStatus Status { get; set; } 
     }
 }

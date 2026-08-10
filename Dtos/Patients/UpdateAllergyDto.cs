@@ -8,7 +8,6 @@ namespace MedicalManagementSystem.Dtos.Patients
         [Required]
         [MaxLength(100)]
         public string AllergyName { get; set; } = null!;
-        [MaxLength(50)]
         public AllergySeverity? Severity { get; set; }
     }
 }

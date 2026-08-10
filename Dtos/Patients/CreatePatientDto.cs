@@ -9,9 +9,7 @@ namespace MedicalManagementSystem.Dtos.Patients
         public int UserId { get; set; }
         [Required]
         public DateTime DOB { get; set; }
-        [MaxLength(20)]
         public Gender? Gender { get; set; }
-        [MaxLength(5)]
         public BloodType? BloodType { get; set; }
         [MaxLength(300)]
         public string? Address { get; set; }

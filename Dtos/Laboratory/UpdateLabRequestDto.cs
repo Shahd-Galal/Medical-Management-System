@@ -7,7 +7,7 @@ namespace MedicalManagementSystem.Dtos.Laboratory
     {
         [MaxLength(100)] 
         public string TestName { get; set; } = null!; 
-        [Required][MaxLength(20)]
+        [Required]
         public LabRequestStatus Status { get; set; } 
     }
 }
