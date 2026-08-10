@@ -1,6 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Text;
 using MedicalManagementSystem.Data;
+using MedicalManagementSystem.Repositories.Appointments;
+using MedicalManagementSystem.Repositories.MedicalRecords;
+using MedicalManagementSystem.Services.Appointments;
+using MedicalManagementSystem.Services.MedicalRecords;
 using MedicalManagementSystem.Model.Auth;
 using MedicalManagementSystem.Repositories.Doctors;
 using MedicalManagementSystem.Repositories.Hospital;
@@ -32,7 +36,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     )
 );
 
-/////////////
+//DI
 
 builder.Services.AddScoped<IBranchRepository, BranchRepository>();
 builder.Services.AddScoped<IBranchService, BranchService>();
@@ -54,6 +58,15 @@ builder.Services.AddScoped<IMedicalHistoryService, MedicalHistoryService>();
 
 builder.Services.AddScoped<IAllergyRepository, AllergyRepository>();
 builder.Services.AddScoped<IAllergyService, AllergyService>();
+
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+
+builder.Services.AddScoped<IMedicalRecordRepository, MedicalRecordRepository>();
+builder.Services.AddScoped<IMedicalRecordService, MedicalRecordService>();
+
+builder.Services.AddScoped<IVitalSignRepository, VitalSignRepository>();
+builder.Services.AddScoped<IVitalSignService, VitalSignService>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
