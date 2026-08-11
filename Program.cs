@@ -1,18 +1,22 @@
 ﻿using System.Diagnostics;
 using System.Text;
 using MedicalManagementSystem.Data;
-using MedicalManagementSystem.Repositories.Appointments;
-using MedicalManagementSystem.Repositories.MedicalRecords;
-using MedicalManagementSystem.Services.Appointments;
-using MedicalManagementSystem.Services.MedicalRecords;
 using MedicalManagementSystem.Model.Auth;
+using MedicalManagementSystem.Repositories.Appointments;
 using MedicalManagementSystem.Repositories.Doctors;
 using MedicalManagementSystem.Repositories.Hospital;
+using MedicalManagementSystem.Repositories.MedicalRecords;
+using MedicalManagementSystem.Repositories.Medicines;
 using MedicalManagementSystem.Repositories.Patients;
+using MedicalManagementSystem.Repositories.Prescriptions;
+using MedicalManagementSystem.Services.Appointments;
 using MedicalManagementSystem.Services.Auth;
 using MedicalManagementSystem.Services.Doctors;
 using MedicalManagementSystem.Services.Hospital;
+using MedicalManagementSystem.Services.MedicalRecords;
+using MedicalManagementSystem.Services.Medicines;
 using MedicalManagementSystem.Services.Patients;
+using MedicalManagementSystem.Services.Prescriptions;
 using MedicalManagementSystem.UnitOfWork;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -67,6 +71,18 @@ builder.Services.AddScoped<IMedicalRecordService, MedicalRecordService>();
 
 builder.Services.AddScoped<IVitalSignRepository, VitalSignRepository>();
 builder.Services.AddScoped<IVitalSignService, VitalSignService>();
+
+builder.Services.AddScoped<IPrescriptionRepository, PrescriptionRepository>();
+builder.Services.AddScoped<IPrescriptionService, PrescriptionService>();
+
+builder.Services.AddScoped<IPrescriptionItemRepository, PrescriptionItemRepository>();
+builder.Services.AddScoped<IPrescriptionItemService, PrescriptionItemService>();
+
+builder.Services.AddScoped<IMedicineRepository, MedicineRepository>();
+builder.Services.AddScoped<IMedicineService, MedicineService>();
+
+builder.Services.AddScoped<IMedicineStockRepository, MedicineStockRepository>();
+builder.Services.AddScoped<IMedicineStockService, MedicineStockService>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();

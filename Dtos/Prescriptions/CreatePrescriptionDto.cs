@@ -6,5 +6,7 @@ namespace MedicalManagementSystem.Dtos.Prescriptions
     {
         [Required]
         public int RecordId { get; set; }
+        [Required]
+        public int DoctorId { get; set; }
     }
 }
