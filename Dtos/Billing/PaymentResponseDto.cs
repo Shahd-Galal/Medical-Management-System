@@ -1,4 +1,4 @@
-﻿using MedicalManagementSystem.Enums.Patients;
+using MedicalManagementSystem.Enums.Billing;
 
 namespace MedicalManagementSystem.Dtos.Billing
 {
@@ -7,8 +7,8 @@ namespace MedicalManagementSystem.Dtos.Billing
         public int PaymentId { get; set; }
         public int InvoiceId { get; set; }
         public decimal Amount { get; set; }
-        public string? PaymentMethod { get; set; }
+        public PaymentMethod? PaymentMethod { get; set; }
         public DateTime PaymentDate { get; set; }
-        public BloodType Status { get; set; } 
+        public PaymentStatus Status { get; set; }
     }
 }

@@ -3,20 +3,30 @@ using System.Text;
 using MedicalManagementSystem.Data;
 using MedicalManagementSystem.Model.Auth;
 using MedicalManagementSystem.Repositories.Appointments;
+using MedicalManagementSystem.Repositories.Billing;
+using MedicalManagementSystem.Repositories.Common;
+using MedicalManagementSystem.Repositories.Insurance;
 using MedicalManagementSystem.Repositories.Doctors;
 using MedicalManagementSystem.Repositories.Hospital;
+using MedicalManagementSystem.Repositories.Laboratory;
 using MedicalManagementSystem.Repositories.MedicalRecords;
 using MedicalManagementSystem.Repositories.Medicines;
 using MedicalManagementSystem.Repositories.Patients;
 using MedicalManagementSystem.Repositories.Prescriptions;
+using MedicalManagementSystem.Repositories.Radiology;
 using MedicalManagementSystem.Services.Appointments;
+using MedicalManagementSystem.Services.Billing;
+using MedicalManagementSystem.Services.Common;
+using MedicalManagementSystem.Services.Insurance;
 using MedicalManagementSystem.Services.Auth;
 using MedicalManagementSystem.Services.Doctors;
 using MedicalManagementSystem.Services.Hospital;
+using MedicalManagementSystem.Services.Laboratory;
 using MedicalManagementSystem.Services.MedicalRecords;
 using MedicalManagementSystem.Services.Medicines;
 using MedicalManagementSystem.Services.Patients;
 using MedicalManagementSystem.Services.Prescriptions;
+using MedicalManagementSystem.Services.Radiology;
 using MedicalManagementSystem.UnitOfWork;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -71,6 +81,39 @@ builder.Services.AddScoped<IMedicalRecordService, MedicalRecordService>();
 
 builder.Services.AddScoped<IVitalSignRepository, VitalSignRepository>();
 builder.Services.AddScoped<IVitalSignService, VitalSignService>();
+
+builder.Services.AddScoped<ILabRequestRepository, LabRequestRepository>();
+builder.Services.AddScoped<ILabRequestService, LabRequestService>();
+
+builder.Services.AddScoped<ILabResultRepository, LabResultRepository>();
+builder.Services.AddScoped<ILabResultService, LabResultService>();
+
+builder.Services.AddScoped<IRadiologyRequestRepository, RadiologyRequestRepository>();
+builder.Services.AddScoped<IRadiologyRequestService, RadiologyRequestService>();
+
+builder.Services.AddScoped<IRadiologyResultRepository, RadiologyResultRepository>();
+builder.Services.AddScoped<IRadiologyResultService, RadiologyResultService>();
+
+builder.Services.AddScoped<IInsuranceProviderRepository, InsuranceProviderRepository>();
+builder.Services.AddScoped<IInsuranceProviderService, InsuranceProviderService>();
+builder.Services.AddScoped<IPatientInsuranceRepository, PatientInsuranceRepository>();
+builder.Services.AddScoped<IPatientInsuranceService, PatientInsuranceService>();
+
+builder.Services.AddScoped<IAttachmentRepository, AttachmentRepository>();
+builder.Services.AddScoped<IAttachmentService, AttachmentService>();
+builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<IAuditLogRepository, AuditLogRepository>();
+builder.Services.AddScoped<IAuditLogService, AuditLogService>();
+
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+builder.Services.AddScoped<IServiceService, ServiceService>();
+builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+builder.Services.AddScoped<IInvoiceService, InvoiceService>();
+builder.Services.AddScoped<IInvoiceItemRepository, InvoiceItemRepository>();
+builder.Services.AddScoped<IInvoiceItemService, InvoiceItemService>();
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 
 builder.Services.AddScoped<IPrescriptionRepository, PrescriptionRepository>();
 builder.Services.AddScoped<IPrescriptionService, PrescriptionService>();

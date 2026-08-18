@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
+using MedicalManagementSystem.Enums.Billing;
 
 namespace MedicalManagementSystem.Dtos.Billing
 {
@@ -6,9 +7,8 @@ namespace MedicalManagementSystem.Dtos.Billing
     {
         [Required]
         public int InvoiceId { get; set; }
-        [Range(0.01, double.MaxValue)] 
+        [Range(0.01, double.MaxValue)]
         public decimal Amount { get; set; }
-        [MaxLength(50)]
-        public string? PaymentMethod { get; set; }
+        public PaymentMethod? PaymentMethod { get; set; }
     }
 }
